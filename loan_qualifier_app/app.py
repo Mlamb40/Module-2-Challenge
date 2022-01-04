@@ -117,6 +117,16 @@ def save_qualifying_loans(qualifying_loans):
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
     # YOUR CODE HERE!
+    if len(qualifying_loans) > 0:
+        answer_qualifying_loans = questionary.text("Do you want to save this they want to save their qualifying loans? (Y/N)").ask()
+        if answer_qualifying_loans == "Y":
+            print("Yes Save File")
+            answer_out_path = questionary.text("What is the output file path u want ?").ask()
+            save_csv(answer_out_path, qualifying_loans)
+        elif answer_qualifying_loans == "N":
+            print("Do not Save File")
+    elif len(qualifying_loans) <= 0:
+        print("Please Exit U have Zero Loan Chance")
    
 
 
